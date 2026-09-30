@@ -1,18 +1,12 @@
-```css
-/* ==============================
-   RESET
-================================ */
+/* ------------------------------
+   General Page Styling
+-------------------------------- */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-/* ==============================
-   PAGE
-================================ */
 
 body {
     min-height: 100vh;
@@ -24,44 +18,283 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
 
     background:
-        radial-gradient(circle at 15% 20%, #312e81 0%, transparent 30%),
-        radial-gradient(circle at 85% 80%, #581c87 0%, transparent 30%),
-        linear-gradient(135deg, #0f172a, #111827, #020617);
+        radial-gradient(circle at top left, #dbeafe, transparent 35%),
+        radial-gradient(circle at bottom right, #e9d5ff, transparent 35%),
+        #f8fafc;
 
-    color: white;
-
-    overflow: hidden;
+    color: #1e293b;
 }
 
 
-/* ==============================
-   CALCULATOR
-================================ */
+/* ------------------------------
+   Calculator Container
+-------------------------------- */
 
 .calculator {
-    width: 370px;
-    max-width: 92vw;
+    width: 360px;
+    max-width: 92%;
 
     padding: 25px;
 
-    border-radius: 30px;
+    border-radius: 28px;
 
-    background: rgba(15, 23, 42, 0.72);
+    background: rgba(255, 255, 255, 0.75);
 
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(20px);
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.45),
-        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+        0 25px 60px rgba(15, 23, 42, 0.12),
+        0 8px 20px rgba(15, 23, 42, 0.05);
 }
 
 
-/* ==============================
-   HEADER
-================================ */
+/* ------------------------------
+   Header
+-------------------------------- */
 
 .calculator-header {
-```
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.calculator-header h1 {
+    font-size: 25px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+.calculator-header p {
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color: #64748b;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ------------------------------
+   Display
+-------------------------------- */
+
+.display {
+    min-height: 125px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    border-radius: 20px;
+
+    background: #f1f5f9;
+
+    box-shadow:
+        inset 0 2px 5px rgba(15, 23, 42, 0.04);
+}
+
+#previous-display {
+    min-height: 22px;
+
+    font-size: 15px;
+
+    color: #94a3b8;
+
+    margin-bottom: 5px;
+}
+
+#current-display {
+    width: 100%;
+
+    text-align: right;
+
+    font-size: 42px;
+
+    font-weight: 600;
+
+    color: #0f172a;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* ------------------------------
+   Button Grid
+-------------------------------- */
+
+.buttons {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 11px;
+}
+
+
+/* ------------------------------
+   General Buttons
+-------------------------------- */
+
+.button {
+    height: 62px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.2s ease;
+
+    user-select: none;
+}
+
+
+/* Button hover */
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Button click */
+
+.button:active {
+    transform: scale(0.94);
+}
+
+
+/* ------------------------------
+   Number Buttons
+-------------------------------- */
+
+.number {
+    background: #ffffff;
+
+    color: #1e293b;
+
+    box-shadow:
+        0 5px 12px rgba(15, 23, 42, 0.06);
+}
+
+.number:hover {
+    background: #f8fafc;
+}
+
+
+/* Zero button */
+
+.zero {
+    grid-column: span 2;
+}
+
+
+/* ------------------------------
+   Function Buttons
+-------------------------------- */
+
+.function {
+    background: #e2e8f0;
+
+    color: #475569;
+}
+
+.function:hover {
+    background: #cbd5e1;
+}
+
+
+/* ------------------------------
+   Operator Buttons
+-------------------------------- */
+
+.operator {
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    box-shadow:
+        0 5px 12px rgba(37, 99, 235, 0.08);
+}
+
+.operator:hover {
+    background: #bfdbfe;
+}
+
+
+/* ------------------------------
+   Equals Button
+-------------------------------- */
+
+.equals {
+    background: #2563eb;
+
+    color: white;
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.equals:hover {
+    background: #1d4ed8;
+}
+
+
+/* ------------------------------
+   Footer
+-------------------------------- */
+
+.calculator-footer {
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #94a3b8;
+}
+
+
+/* ------------------------------
+   Mobile Responsive Design
+-------------------------------- */
+
+@media (max-width: 400px) {
+
+    .calculator {
+        padding: 18px;
+
+        border-radius: 23px;
+    }
+
+    .button {
+        height: 58px;
+
+        border-radius: 15px;
+    }
+
+    #current-display {
+        font-size: 35px;
+    }
+}
